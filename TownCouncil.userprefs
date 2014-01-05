@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\FireStage.cs">
+    <Files>
+      <File FileName="Assets\FireStage.cs" Line="24" Column="25" />
+      <File FileName="Assets\Scripts\Stage1.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameStages.cs" Line="1" Column="1" />
+      <File FileName="Assets\MoveScript.cs" Line="15" Column="5" />
+      <File FileName="Assets\Scripts\GreetingWindow.cs" Line="13" Column="37" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
