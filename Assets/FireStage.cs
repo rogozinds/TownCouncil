@@ -3,6 +3,8 @@ using System.Collections;
 
 public class FireStage : MonoBehaviour {
 	private Object fires;
+	Component[] particles;
+	Light childLight;
 	// Use this for initialization
 	void Start () {
 	
@@ -14,14 +16,19 @@ public class FireStage : MonoBehaviour {
 	}
 	void OnGUI() {
 		GameObject[] fires = GameObject.FindGameObjectsWithTag("FireTag");
+			// Init the particles to not emit and switch off the spotlights:
+
 		foreach (GameObject fire in fires) {
+			childLight = fire.GetComponentInChildren<Light>();
+
+			ParticleSystem particlesystem = (ParticleSystem)fire.GetComponent("ParticleSystem");
 			if (GameStages.stageId == 2) {
-				fire.renderer.enabled=true;
-				Debug.Log ("FIre on");
+				childLight.enabled=true;
+				particlesystem.enableEmission = true;
 
 			} else {
-				fire.renderer.enabled=false;
-				Debug.Log ("FIre off");
+				childLight.enabled=false;
+				particlesystem.enableEmission = false;
 			}
 		}
 	}

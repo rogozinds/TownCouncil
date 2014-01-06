@@ -123,19 +123,7 @@ function Apply (dummyTarget : Transform, dummyCenter : Vector3)
 	}
 
 
-	// When jumping don't move camera upwards but only down!
-	if (controller.IsJumping ())
-	{
-		// We'd be moving the camera upwards, do that only if it's really high
-		var newTargetHeight = targetCenter.y + height;
-		if (newTargetHeight < targetHeight || newTargetHeight - targetHeight > 5)
-			targetHeight = targetCenter.y + height;
-	}
-	// When walking always update the target height
-	else
-	{
-		targetHeight = targetCenter.y + height;
-	}
+	targetHeight = targetCenter.y + height;
 
 	// Damp the height
 	var currentHeight = cameraTransform.position.y;

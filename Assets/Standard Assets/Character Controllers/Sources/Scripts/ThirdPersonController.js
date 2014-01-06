@@ -215,57 +215,12 @@ function UpdateSmoothedMovementDirection ()
 	// In air controls
 	else
 	{
-		// Lock camera while in air
-		if (jumping)
-			lockCameraTimer = 0.0;
-
 		if (isMoving)
 			inAirVelocity += targetDirection.normalized * Time.deltaTime * inAirControlAcceleration;
 	}
 	
 
 		
-}
-
-
-function ApplyJumping ()
-{
-	// Prevent jumping too fast after each other
-	if (lastJumpTime + jumpRepeatTime > Time.time)
-		return;
-
-	if (IsGrounded()) {
-		// Jump
-		// - Only when pressing the button down
-		// - With a timeout so you can press the button slightly before landing		
-		if (canJump && Time.time < lastJumpButtonTime + jumpTimeout) {
-			verticalSpeed = CalculateJumpVerticalSpeed (jumpHeight);
-			SendMessage("DidJump", SendMessageOptions.DontRequireReceiver);
-		}
-	}
-}
-
-
-function ApplyGravity ()
-{
-	if (isControllable)	// don't move player at all if not controllable.
-	{
-		// Apply gravity
-		var jumpButton = Input.GetButton("Jump");
-		
-		
-		// When we reach the apex of the jump we send out a message
-		if (jumping && !jumpingReachedApex && verticalSpeed <= 0.0)
-		{
-			jumpingReachedApex = true;
-			SendMessage("DidJumpReachApex", SendMessageOptions.DontRequireReceiver);
-		}
-	
-		if (IsGrounded ())
-			verticalSpeed = 0.0;
-		else
-			verticalSpeed -= gravity * Time.deltaTime;
-	}
 }
 
 function CalculateJumpVerticalSpeed (targetJumpHeight : float)
@@ -300,15 +255,7 @@ function Update() {
 	}
 
 	UpdateSmoothedMovementDirection();
-	
-	// Apply gravity
-	// - extra power jump modifies gravity
-	// - controlledDescent mode modifies gravity
-	ApplyGravity ();
-
-	// Apply jumping logic
-	ApplyJumping ();
-	
+		
 	// Calculate actual motion
 	var movement = moveDirection * moveSpeed + Vector3 (0, verticalSpeed, 0) + inAirVelocity;
 	movement *= Time.deltaTime;
@@ -397,9 +344,6 @@ function GetSpeed () {
 	return moveSpeed;
 }
 
-function IsJumping () {
-	return jumping;
-}
 
 function IsGrounded () {
 	return (collisionFlags & CollisionFlags.CollidedBelow) != 0;
