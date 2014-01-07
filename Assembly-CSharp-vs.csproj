@@ -46,7 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\0SliderExamples\Sliders.cs" />
      <Compile Include="Assets\FireStage.cs" />
+     <Compile Include="Assets\HelpWindow.cs" />
      <Compile Include="Assets\MoveScript.cs" />
      <Compile Include="Assets\Scripts\CompLabelSlider.cs" />
      <Compile Include="Assets\Scripts\CurrentMoney.cs" />

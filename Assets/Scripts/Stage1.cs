@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Stage1 : MonoBehaviour {
+	public GUISkin skin;
+	public int amountOfPoints = 100;
 	public float f1=0;
 	private float f2=2;
 	// Use this for initialization
@@ -15,15 +17,24 @@ public class Stage1 : MonoBehaviour {
 	}
 	void OnGUI() {
 		if (GameStages.stageId == 1) {
-			Rect rect1 = new Rect (50, 50, 400, 200);
-			GUI.Box(rect1,"");
-			Rect rectSlider=new Rect(50,50,50,20);
-			f1=CompLabelSlider.LabelSlider(rectSlider,f1,100,"Factor1");
+			GUI.skin = skin;	
+			Rect position = new Rect (400, 300, 400, 200);
+			GUI.Box(position,"Specify parameters");
+			Rect rectSlider=new Rect(420,330,150,20);
+			f1=CompLabelSlider.LabelSlider(rectSlider,f1,100,"lapset ja perheet",
+			                               "päivähoito, kotihoidon tuki, perusopetus, lastensuojelun palvelut",skin);
 			rectSlider.y+=20;
-			f2=CompLabelSlider.LabelSlider(rectSlider,f2,100,"Factor1");
+
+			f2=CompLabelSlider.LabelSlider(rectSlider,f2,100,"ikäihmiset","Some info",skin);
+
+
+			position.x+=position.width+10;
+			position.width=150;
+			if (GUI.tooltip!="") {
+				GUI.Box(position,"");
+				GUI.Label(position, GUI.tooltip);
+			}
 			rectSlider.y+=50;
-			float f3=3;
-			f3=GUI.HorizontalSlider(rectSlider,f3,0,10);
 		}
 	}
 }
