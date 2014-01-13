@@ -4,8 +4,7 @@ using System.Collections;
 public class Stage1 : MonoBehaviour {
 	public GUISkin skin;
 	public int amountOfPoints = 100;
-	public float f1=0;
-	private float f2=2;
+	private float[] slVals= new float[10];
 	// Use this for initialization
 	void Start () {
 	
@@ -16,25 +15,45 @@ public class Stage1 : MonoBehaviour {
 	
 	}
 	void OnGUI() {
-		if (GameStages.stageId == 1) {
+		if ((GameStages.stageId == 1) && (!JaneMoveScript.isMoving) ) {
 			GUI.skin = skin;	
-			Rect position = new Rect (400, 300, 400, 200);
+			Rect position = new Rect (400, 300, 550, 220);
 			GUI.Box(position,"Specify parameters");
-			Rect rectSlider=new Rect(420,330,150,20);
-			f1=CompLabelSlider.LabelSlider(rectSlider,f1,100,"lapset ja perheet",
-			                               "päivähoito, kotihoidon tuki, perusopetus, lastensuojelun palvelut",skin);
-			rectSlider.y+=20;
-
-			f2=CompLabelSlider.LabelSlider(rectSlider,f2,100,"ikäihmiset","Some info",skin);
-
-
-			position.x+=position.width+10;
+			createSliders();
+			position.x+=position.width-150;
+			position.y+=30;
 			position.width=150;
-			if (GUI.tooltip!="") {
-				GUI.Box(position,"");
-				GUI.Label(position, GUI.tooltip);
+			string helpText="";
+			Debug.Log(GUI.tooltip.ToString());
+			if (GUI.tooltip.ToString()!="") {
+				helpText=GUI.tooltip;
 			}
-			rectSlider.y+=50;
+			GUI.Label(position,helpText);
 		}
+	}
+
+	void createSliders() {
+		Rect rectSlider=new Rect(420,330,140,20);
+		slVals[0]=CompLabelSlider.LabelSlider(rectSlider,slVals[0],100,"lapset ja perheet",
+		                                      "päivähoito, kotihoidon tuki, perusopetus, lastensuojelun palvelut",skin);
+		rectSlider.y+=30;
+		
+		slVals[1]=CompLabelSlider.LabelSlider(rectSlider,slVals[1],100,"ikäihmiset",
+		                                      "kotona asumista tukevat palvelut, hoidon ja asumisen yhdistävät palvelut",skin);
+		rectSlider.y+=30;
+		slVals[2]=CompLabelSlider.LabelSlider(rectSlider,slVals[2],100,"työllisyys",
+		                                      "työllistymisen tukeminen, ammatillinen koulutus, lukiokoulutus",skin);
+		rectSlider.y+=30;
+		slVals[3]=CompLabelSlider.LabelSlider(rectSlider,slVals[3],100,"elinkeinoelämä",
+		                                      "yrittäjyyden tukeminen, tilojen ja tonttien tarjonta, aikuis- ja korkeakoulutuksen kehittäminen",skin);
+		
+		rectSlider.y+=30;
+		slVals[4]=CompLabelSlider.LabelSlider(rectSlider,slVals[4],100,"liikunta",
+		                                      "liikuntapaikkojen tarjoaminen, järjestöjen tukeminen, suurtapahtumien järjestämiseen osallistuminen",skin);
+		rectSlider.y+=30;
+		slVals[5]=CompLabelSlider.LabelSlider(rectSlider,slVals[5],100,"kulttuuri",
+		                                      "tilojen tarjoaminen, järjestöjen tukeminen, suurtapahtumien järjestämiseen osallistuminen, kirjastot",skin);
+
+
 	}
 }

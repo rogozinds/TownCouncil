@@ -19,15 +19,15 @@ public class HelpWindow : MonoBehaviour {
 		Rect position = new Rect (200,10,300,153);
 		Rect cirlcePosition = new Rect (20,10,200,200);
 		if (GameStages.stageId == 0) {
-			text="Greetings!";
-			dialogue="You are in the TownCouncil Game!";
+			text="Onneksi olkoon!";
+			dialogue="Sinut on valittu kunnanvaltuustoon. Ensimmäinen tehtäväsi on luoda strategia, jota seuraat kautesi aikana. Strategiasta päätetään kunnanvaltuustossa. ";
 		}
-		if (GameStages.stageId == 1 ) {
+		if ((GameStages.stageId == 1) && (!JaneMoveScript.isMoving) ) {
 			text="Select your strategy.";
 			dialogue="In this stage you have to specify your strategy. Use the sliders." +
 				"To get info about each factor just point on the specific slider.";
 		}
-		if (GameStages.stageId == 2 ) {
+		if ((GameStages.stageId == 2) && (!JaneMoveScript.isMoving)) {
 			text="OOOPS!";
 			dialogue = "Unexpected situation appeared. You have to reconsider your strategy.";
 		}
@@ -45,16 +45,7 @@ public class HelpWindow : MonoBehaviour {
 		position.x += 20;
 		position.height -= 40;
 		position.width -= 40;
-		scrollPosition = GUI.BeginScrollView(position, scrollPosition, new Rect(5, 5, 287, 200));
-				
-		// Put something inside the ScrollView
-		
-		string innerText = GUI.TextArea(new Rect(5, 5, 287, textLength), dialogue);
-
-		// End the ScrollView
-		
-		GUI.EndScrollView();
-
+		GUI.Label(position, dialogue);
 	}
 
 }

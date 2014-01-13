@@ -2,22 +2,17 @@
 using System.Collections;
 
 public class CurrentMoney : MonoBehaviour {
-	public int initialMoney=1000;
-	public int remainMoney=1000;
-	private string textInd="";
-	public float moneyBarLength=0.0f;
 	public Texture2D houseIcon;
 	public Texture2D circle;
 	public int curStage;
 	public string stringToEdit;
 	// Use this for initialization
 	void Start () {
-		remainMoney = initialMoney;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		AdjCurMoney (0);
 	}
 
 	void OnGUI() {
@@ -31,17 +26,6 @@ public class CurrentMoney : MonoBehaviour {
 		GUI.skin.box.normal.background = texture;
 		GUI.Box (position, text);
 		GUI.skin.box.normal.background = tmp;
-	}
-	void AdjCurMoney(int adj) {
-		remainMoney = remainMoney + adj;
-		if (remainMoney < 1) {
-			remainMoney=0;		
-		}
-		if(initialMoney<1) {
-			initialMoney=0;
-		}	
-		textInd =remainMoney.ToString() +"/"+ initialMoney + " euros";
-		moneyBarLength=(Screen.width / 2)*(remainMoney/(float)initialMoney);
 	}
 	private void drawNavMap() {
 		int BEGIN_POS_X=10;
@@ -63,8 +47,5 @@ public class CurrentMoney : MonoBehaviour {
 			int xpos=BEGIN_POS_X+DIST_ICONS*i;
 			DrawQuad(new Rect(xpos+80,BEGIN_POS_Y+160,DIST_ICONS,10),c);
 		}
-
-		DrawQuad (new Rect (70, Screen.height - 130, moneyBarLength, 30),new Color(200,0,42), textInd);
-
 	}
 }

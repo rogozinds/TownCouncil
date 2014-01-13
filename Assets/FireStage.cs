@@ -22,7 +22,7 @@ public class FireStage : MonoBehaviour {
 			childLight = fire.GetComponentInChildren<Light>();
 
 			ParticleSystem particlesystem = (ParticleSystem)fire.GetComponent("ParticleSystem");
-			if (GameStages.stageId == 2) {
+			if ((GameStages.stageId == 2) && (JaneMoveScript.isMoving==false)) {
 				childLight.enabled=true;
 				particlesystem.enableEmission = true;
 

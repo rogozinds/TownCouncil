@@ -47,17 +47,30 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\0SliderExamples\Sliders.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Archive\RootMotionControllerv1\Plugins\Mixamo\RootMotionComputer.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Archive\RootMotionControllerv1\Scripts\RootMotionCharacter.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Aux Scripts\AnimationGraph.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Aux Scripts\AnimationInfo.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Aux Scripts\ExtendendMonoBehaviour.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Aux Scripts\MixamoJSON.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Aux Scripts\Util.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Blank Scripts for You\YourController.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Scripts\AnimationStateMachine.cs" />
+     <Compile Include="Assets\AnimationStateMachine\Scripts\MixamoDemoControlScript.cs" />
      <Compile Include="Assets\FireStage.cs" />
      <Compile Include="Assets\HelpWindow.cs" />
+     <Compile Include="Assets\JaneMoveScript.cs" />
      <Compile Include="Assets\MoveScript.cs" />
      <Compile Include="Assets\Scripts\CompLabelSlider.cs" />
      <Compile Include="Assets\Scripts\CurrentMoney.cs" />
      <Compile Include="Assets\Scripts\GameStages.cs" />
-     <Compile Include="Assets\Scripts\GreetingWindow.cs" />
      <Compile Include="Assets\Scripts\Stage1.cs" />
+     <None Include="Assets\AnimationStateMachine\README.txt" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Texts\greetingText.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\AnimationStateMachine\Blank Scripts for You\YourGraph.txt" />
+     <None Include="Assets\AnimationStateMachine\Scripts\demo_motion_pack.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">

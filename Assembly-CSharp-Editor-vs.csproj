@@ -46,10 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AnimationStateMachine\Archive\RootMotionControllerv1\Editor\Mixamo\RootMotionComputerInspector.cs" />
      <Compile Include="Assets\AnimationStore\Editor\MixamoStoreWindow.cs" />
+     <None Include="Assets\AnimationStateMachine\README.txt" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Texts\greetingText.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\AnimationStateMachine\Blank Scripts for You\YourGraph.txt" />
+     <None Include="Assets\AnimationStateMachine\Scripts\demo_motion_pack.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>

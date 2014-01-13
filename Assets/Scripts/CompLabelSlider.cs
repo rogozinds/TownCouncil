@@ -13,7 +13,7 @@ public class CompLabelSlider : MonoBehaviour {
 		screenRect.x += screenRect.width; 
 		sliderValue = GUI.HorizontalSlider (screenRect, sliderValue, 0.0f, sliderMaxValue);
 		GUI.Box (screenRect, new GUIContent ("", tooltipText), GUIStyle.none);
-		screenRect.y += 20;
+		screenRect.y += 10;
 		GUI.skin = defaultSkin;
 		return sliderValue;
 	}
