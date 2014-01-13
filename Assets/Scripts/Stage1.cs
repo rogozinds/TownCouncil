@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Stage1 : MonoBehaviour {
 	public GUISkin skin;
+	public Texture2D okPic;
+	bool render = true;
 	public int amountOfPoints = 100;
 	private float[] slVals= new float[10];
 	// Use this for initialization
@@ -15,20 +17,25 @@ public class Stage1 : MonoBehaviour {
 	
 	}
 	void OnGUI() {
-		if ((GameStages.stageId == 1) && (!JaneMoveScript.isMoving) ) {
-			GUI.skin = skin;	
-			Rect position = new Rect (400, 300, 550, 220);
-			GUI.Box(position,"Specify parameters");
-			createSliders();
-			position.x+=position.width-150;
-			position.y+=30;
-			position.width=150;
-			string helpText="";
-			Debug.Log(GUI.tooltip.ToString());
-			if (GUI.tooltip.ToString()!="") {
-				helpText=GUI.tooltip;
+		if (render) {
+			if ((GameStages.stageId == 1) && (!JaneMoveScript.isMoving)) {
+				GUI.skin = skin;	
+				Rect position = new Rect (400, 300, 550, 220);
+				GUI.Box (position, "Specify parameters");
+				createSliders ();
+				position.x += position.width - 150;
+				position.y += 30;
+				position.width = 150;
+				string helpText = "";
+				Debug.Log (GUI.tooltip.ToString ());
+				if (GUI.tooltip.ToString () != "") {
+					helpText = GUI.tooltip;
+				}
+				GUI.Label (position, helpText);
+				if (GUI.Button (new Rect (870, 460, 50, 50), okPic)) {
+					render = false;
+				}
 			}
-			GUI.Label(position,helpText);
 		}
 	}
 

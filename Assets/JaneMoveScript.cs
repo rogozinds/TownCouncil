@@ -3,7 +3,8 @@ using System.Collections;
 
 public class JaneMoveScript : MonoBehaviour {
 	public static bool  isMoving = false;
-	private float speed = 3.5F;
+	//private float speed = 3.5F;
+	private float speed = 16.5F;
 	private int phase = 1;
 	public AnimationClip walkAnimation;
 	public AnimationClip idleAnimation;
