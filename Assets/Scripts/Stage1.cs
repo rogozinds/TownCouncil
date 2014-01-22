@@ -7,6 +7,7 @@ public class Stage1 : MonoBehaviour {
 	bool render = true;
 	public int amountOfPoints = 100;
 	private float[] slVals= new float[10];
+	private string helpText = "";
 	// Use this for initialization
 	void Start () {
 	
@@ -19,19 +20,21 @@ public class Stage1 : MonoBehaviour {
 	void OnGUI() {
 		if (render) {
 			if ((GameStages.stageId == 1) && (!JaneMoveScript.isMoving)) {
-				GUI.skin = skin;	
+				GUI.skin = skin;
+				Color tmp = GUI.color;
+				GUI.contentColor=Color.black;
 				Rect position = new Rect (400, 300, 550, 220);
-				GUI.Box (position, "Specify parameters");
+				GUI.Box (position, "Määrittele parametrit");
 				createSliders ();
 				position.x += position.width - 150;
 				position.y += 30;
 				position.width = 150;
-				string helpText = "";
-				Debug.Log (GUI.tooltip.ToString ());
 				if (GUI.tooltip.ToString () != "") {
 					helpText = GUI.tooltip;
 				}
+
 				GUI.Label (position, helpText);
+				GUI.contentColor=tmp;
 				if (GUI.Button (new Rect (870, 460, 50, 50), okPic)) {
 					render = false;
 				}

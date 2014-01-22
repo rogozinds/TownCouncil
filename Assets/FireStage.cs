@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class FireStage : MonoBehaviour {
+	public Texture2D attentPic;
 	private Object fires;
 	Component[] particles;
 	Light childLight;
@@ -25,6 +26,7 @@ public class FireStage : MonoBehaviour {
 			if ((GameStages.stageId == 2) && (JaneMoveScript.isMoving==false)) {
 				childLight.enabled=true;
 				particlesystem.enableEmission = true;
+				GUI.Label(new Rect (420, 300, 550, 220),attentPic);
 
 			} else {
 				childLight.enabled=false;

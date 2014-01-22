@@ -5,6 +5,7 @@ public class HelpWindow : MonoBehaviour {
 	public GUISkin skin;
 	public Texture2D circleTexture;
 	public Texture2D commentPic;
+	public Texture2D leftCornerPic;
 	private string text;
 	private string dialogue;
 	private int textLength = 335;
@@ -56,7 +57,8 @@ public class HelpWindow : MonoBehaviour {
 		if ((GameStages.stageId > 0) && (!JaneMoveScript.isMoving)) {
 			GUI.Label (new Rect (Screen.width-250,10,240,350),commentPic);
 		}
-
+		//Adding Tampere logo
+		GUI.Label (new Rect (10,Screen.height-120,450,120),leftCornerPic);
 	}
 
 }

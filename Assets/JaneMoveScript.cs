@@ -3,8 +3,8 @@ using System.Collections;
 
 public class JaneMoveScript : MonoBehaviour {
 	public static bool  isMoving = false;
-	//private float speed = 3.5F;
-	private float speed = 16.5F;
+	private float speed = 3.5F;
+	//private float speed = 16.5F;
 	private int phase = 1;
 	public AnimationClip walkAnimation;
 	public AnimationClip idleAnimation;
@@ -66,7 +66,6 @@ public class JaneMoveScript : MonoBehaviour {
 		}
 		if((transform.position.x <= 70)&&(transform.position.z <= 196)) {
 			phase=2;
-			Debug.Log("DJIGURDA");
 		}
 	}
 	void moveToStage2_ph2() {
